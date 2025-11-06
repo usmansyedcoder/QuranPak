@@ -1,4 +1,3 @@
-// src/components/QuranApi.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./QuranApi.css";

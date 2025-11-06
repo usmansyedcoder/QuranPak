@@ -14,7 +14,6 @@ const App = () => {
 
   const ayahSectionRef = useRef(null);
 
-  // ✅ Fetch all Surahs securely using HTTPS
   useEffect(() => {
     axios
       .get("https://api.alquran.cloud/v1/surah")
@@ -22,14 +21,12 @@ const App = () => {
       .catch((error) => setError("Failed to load Surah list. Please try again later."));
   }, []);
 
-  // Smooth scroll to Ayah section
   const scrollToAyahs = () => {
     if (ayahSectionRef.current) {
       ayahSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  // ✅ Handle Surah selection
   const handleSelectSurah = (surahNumber) => {
     setLoading(true);
     setError(null);
@@ -46,7 +43,6 @@ const App = () => {
       });
   };
 
-  // ✅ Handle Juz selection
   const handleSelectJuz = (juzNumber) => {
     setLoading(true);
     setError(null);
