@@ -1,0 +1,44 @@
+src/components/QuranApi.css
+.quran-container {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: #e24646;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: max-content;
+  text-align: center;
+}
+
+.quran-container h1 {
+  color: #4caf50;
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.quran-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quran-container li {
+  background: #fff;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1.1em;
+  color: #333;
+}
+
+.quran-container li:nth-child(odd) {
+  background: #cf4c4c;
+}
+
+.quran-container li::before {
+  content: "Ayah ";
+  font-weight: bold;
+  color: #555;
+}

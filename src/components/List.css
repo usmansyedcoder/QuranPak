@@ -1,0 +1,93 @@
+.list-container {
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(24, 82, 206, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+.list-container h2 {
+  color: #ff0000;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-container li {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.1em;
+  color: #000000;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.list-container li:hover {
+  background: #dabf69;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ayah-list-container {
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  background: rgba(201, 73, 73, 0.95);
+  position: relative;
+  z-index: 1;
+}
+
+.ayah-list-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ayah-list-container li {
+  text-align: center;
+  background: #f9f9f9;
+  margin: 12px 0;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.2em;
+  color: #333;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.background-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(0.4) blur(3px);
+  z-index: 0;
+  transition: background-image 0.5s ease-in-out;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.ayah-list-container {
+  scroll-margin-top: 80px; 
+}
