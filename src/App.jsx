@@ -14,49 +14,51 @@ const App = () => {
 
   const ayahSectionRef = useRef(null);
 
+  // ✅ Fetch all Surahs securely using HTTPS
   useEffect(() => {
     axios
-      .get("http://api.alquran.cloud/v1/surah")
-      .then((response) => {
-        setSurahs(response.data.data);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
+      .get("https://api.alquran.cloud/v1/surah")
+      .then((response) => setSurahs(response.data.data))
+      .catch((error) => setError("Failed to load Surah list. Please try again later."));
   }, []);
 
+  // Smooth scroll to Ayah section
   const scrollToAyahs = () => {
     if (ayahSectionRef.current) {
       ayahSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
+  // ✅ Handle Surah selection
   const handleSelectSurah = (surahNumber) => {
     setLoading(true);
+    setError(null);
     axios
-      .get(`http://api.alquran.cloud/v1/surah/${surahNumber}`)
+      .get(`https://api.alquran.cloud/v1/surah/${surahNumber}`)
       .then((response) => {
         setAyahs(response.data.data.ayahs);
         setLoading(false);
         scrollToAyahs();
       })
-      .catch((error) => {
-        setError(error.message);
+      .catch(() => {
+        setError("Network error — unable to load Surah. Please check your connection.");
         setLoading(false);
       });
   };
 
+  // ✅ Handle Juz selection
   const handleSelectJuz = (juzNumber) => {
     setLoading(true);
+    setError(null);
     axios
-      .get(`http://api.alquran.cloud/v1/juz/${juzNumber}`)
+      .get(`https://api.alquran.cloud/v1/juz/${juzNumber}`)
       .then((response) => {
         setAyahs(response.data.data.ayahs);
         setLoading(false);
         scrollToAyahs();
       })
-      .catch((error) => {
-        setError(error.message);
+      .catch(() => {
+        setError("Network error — unable to load Juz. Please try again later.");
         setLoading(false);
       });
   };
@@ -64,18 +66,17 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Read Quran Pak and Win Jannah</h1>
-        <h2>Choose your para & surah and start reading the Holy Quran</h2>
+        <h1>📖 Read Quran Pak and Win Jannah</h1>
+        <h2>Choose your Para or Surah and start reading the Holy Quran</h2>
 
         <div className="list-wrapper">
           <SurahList surahs={surahs} onSelectSurah={handleSelectSurah} />
           <JuzList juzs={juzs} onSelectJuz={handleSelectJuz} />
         </div>
 
-        {loading && <div>Loading...</div>}
-        {error && <div>Error: {error}</div>}
+        {loading && <div className="loading">Loading...</div>}
+        {error && <div className="error-message">{error}</div>}
 
-        
         <div id="ayah-section" ref={ayahSectionRef} className="ayah-list-container">
           {!loading && !error && <AyahList ayahs={ayahs} />}
         </div>
