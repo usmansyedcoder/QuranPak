@@ -62,7 +62,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>📖 Read Quran Pak and Win Jannah</h1>
+        <h1>📖 Read Quran Pak and Win Jannah 📖</h1>
         <h2>Choose your Para or Surah and start reading the Holy Quran</h2>
 
         <div className="list-wrapper">
